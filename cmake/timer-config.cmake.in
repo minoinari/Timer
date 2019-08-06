@@ -1,0 +1,54 @@
+# Timer CMake config file
+#
+# This file sets the following variables:
+# Timer_FOUND - Always TRUE.
+# Timer_INCLUDE_DIRS - Directories containing the Timer include files.
+# Timer_IDL_DIRS - Directories containing the Timer IDL files.
+# Timer_LIBRARIES - Libraries needed to use Timer.
+# Timer_DEFINITIONS - Compiler flags for Timer.
+# Timer_VERSION - The version of Timer found.
+# Timer_VERSION_MAJOR - The major version of Timer found.
+# Timer_VERSION_MINOR - The minor version of Timer found.
+# Timer_VERSION_REVISION - The revision version of Timer found.
+# Timer_VERSION_CANDIDATE - The candidate version of Timer found.
+
+message(STATUS "Found Timer-@PROJECT_VERSION@")
+set(Timer_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(Timer_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(Timer_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(Timer_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(Timer_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(Timer_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(Timer_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(Timer_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(Timer_VERSION @PROJECT_VERSION@)
+set(Timer_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(Timer_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(Timer_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(Timer_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+

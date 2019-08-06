@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\OGATA\workspace\Timer\build\CMakeFiles\cc8d582f148fb4cd23cb8266f215a527\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{90CAF22B-B1AB-3861-9947-31B3FF5A9E6F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
